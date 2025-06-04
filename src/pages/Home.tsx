@@ -1,9 +1,9 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Shield, Users, MapPin, Clock } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const Home = () => {
   useEffect(() => {
@@ -121,6 +121,7 @@ const Home = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

@@ -1,9 +1,9 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Shield, Database, Trash2 } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const Privacy = () => {
   useEffect(() => {
@@ -162,6 +162,7 @@ const Privacy = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

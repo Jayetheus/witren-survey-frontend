@@ -1,10 +1,10 @@
-
 import { useEffect } from 'react';
 import SurveyForm from '../components/SurveyForm';
 import { Card } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Footer from '../components/Footer';
 
 const Survey = () => {
   useEffect(() => {
@@ -63,6 +63,7 @@ const Survey = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
