@@ -4,16 +4,24 @@ import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, FileText, Users, AlertTriangle } from 'lucide-react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Terms = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: true,
-      easing: 'ease-out'
-    });
+    // Initialize AOS when available
+    const initAOS = async () => {
+      try {
+        const AOS = await import('aos');
+        await import('aos/dist/aos.css');
+        AOS.default.init({
+          duration: 600,
+          once: true,
+          easing: 'ease-out'
+        });
+      } catch (error) {
+        console.log('AOS not available:', error);
+      }
+    };
+    initAOS();
   }, []);
 
   return (

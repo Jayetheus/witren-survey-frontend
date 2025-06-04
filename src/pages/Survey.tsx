@@ -5,16 +5,24 @@ import { Card } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 const Survey = () => {
   useEffect(() => {
-    AOS.init({
-      duration: 600,
-      once: true,
-      easing: 'ease-out'
-    });
+    // Initialize AOS when available
+    const initAOS = async () => {
+      try {
+        const AOS = await import('aos');
+        await import('aos/dist/aos.css');
+        AOS.default.init({
+          duration: 600,
+          once: true,
+          easing: 'ease-out'
+        });
+      } catch (error) {
+        console.log('AOS not available:', error);
+      }
+    };
+    initAOS();
   }, []);
 
   return (
