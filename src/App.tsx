@@ -24,6 +24,7 @@ const App = () => (
           <Route path="/survey" element={<Survey />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path='/thank-you' element={<ThankYou/>}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
