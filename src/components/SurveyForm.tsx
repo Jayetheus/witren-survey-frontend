@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { toast } from '@/hooks/use-toast';
-import { Shield, Clock } from 'lucide-react';
+import { Shield, Clock, Loader } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface FormData {
@@ -120,7 +120,7 @@ const SurveyForm = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        timeout: 10000, // 10 second timeout
+        timeout: 10000,
       });
       
       console.log('Response:', response.data);
@@ -501,7 +501,7 @@ const SurveyForm = () => {
             disabled={isSubmitting}
             className="bg-green-600 hover:bg-green-700"
           >
-            {isSubmitting ? 'Submitting...' : 'Submit Survey'}
+            {isSubmitting ?<><Loader className='animate-spin'/><span>'Submitting...'</span></> : 'Submit Survey'}
           </Button>
         )}
       </div>
