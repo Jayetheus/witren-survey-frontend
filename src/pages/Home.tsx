@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -30,11 +29,14 @@ const Home = () => {
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         {/* Logo Section */}
         <div className="text-center mb-8" data-aos="fade-down">
-          <img 
-            src="/lovable-uploads/e9660e74-0675-4977-a3ba-4c1107120e3d.png" 
-            alt="WitRent Logo" 
-            className="mx-auto h-24 w-auto mb-4"
-          />
+          <div className="inline-flex items-center justify-center p-4 bg-white rounded-2xl shadow-lg mb-6 border border-slate-200">
+            <img 
+              src="/lovable-uploads/e9660e74-0675-4977-a3ba-4c1107120e3d.png" 
+              alt="WitRent Logo" 
+              className="h-16 w-auto filter drop-shadow-sm"
+            />
+          </div>
+          <div className="w-20 h-1 bg-gradient-to-r from-witblue to-witorange mx-auto rounded-full"></div>
         </div>
 
         <div className="text-center mb-16" data-aos="fade-up">
