@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { toast } from '@/hooks/use-toast';
 import { Shield, Clock } from 'lucide-react';
-import { replace, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 interface FormData {
   currentlyLooking: string;
@@ -29,6 +29,7 @@ interface FormData {
 
 const SurveyForm = () => {
   const navigate = useNavigate();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [currentSection, setCurrentSection] = useState(1);
   const [formData, setFormData] = useState<FormData>({
@@ -109,17 +110,51 @@ const SurveyForm = () => {
   };
 
   const submitForm = async () => {
-    const response = await axios.post(process.env.API_POINT, formData).catch(
-      (err) => {
-        toast({title: 'Failed To Save',description: 'Failed to save your response!'})
-      }
-    )
-    toast({
-      title: "Thank you!",
-      description: "Your response has been submitted anonymously.",
-    });
+    setIsSubmitting(true);
+    
+    try {
+      console.log('Submitting form data:', formData);
+      console.log('API Endpoint:', import.meta.env.VITE_API_ENDPOINT);
+      
+      const response = await axios.post(import.meta.env.VITE_API_ENDPOINT, formData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        timeout: 10000, // 10 second timeout
+      });
+      
+      console.log('Response:', response.data);
+      
+      toast({
+        title: "Thank you!",
+        description: "Your response has been submitted successfully.",
+      });
 
-    navigate('/thank-you', {replace: true})
+      navigate('/thank-you', { replace: true });
+      
+    } catch (error) {
+      console.error('Submission error:', error);
+      
+      let errorMessage = 'Failed to save your response. Please try again.';
+      
+      if (axios.isAxiosError(error)) {
+        if (error.code === 'ECONNABORTED') {
+          errorMessage = 'Request timeout. Please check your connection and try again.';
+        } else if (error.response) {
+          errorMessage = `Server error: ${error.response.status}. Please try again.`;
+        } else if (error.request) {
+          errorMessage = 'Network error. Please check your connection and try again.';
+        }
+      }
+      
+      toast({
+        title: 'Submission Failed',
+        description: errorMessage,
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -463,9 +498,10 @@ const SurveyForm = () => {
         ) : (
           <Button
             onClick={submitForm}
+            disabled={isSubmitting}
             className="bg-green-600 hover:bg-green-700"
           >
-            Submit Survey
+            {isSubmitting ? 'Submitting...' : 'Submit Survey'}
           </Button>
         )}
       </div>
