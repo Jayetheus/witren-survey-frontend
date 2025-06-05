@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,6 +28,15 @@ const Home = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12 max-w-6xl">
+        {/* Logo Section */}
+        <div className="text-center mb-8" data-aos="fade-down">
+          <img 
+            src="/lovable-uploads/e9660e74-0675-4977-a3ba-4c1107120e3d.png" 
+            alt="WitRent Logo" 
+            className="mx-auto h-24 w-auto mb-4"
+          />
+        </div>
+
         <div className="text-center mb-16" data-aos="fade-up">
           <h1 className="text-5xl font-bold text-slate-800 mb-6 leading-tight">
             Help Shape Witbank's
