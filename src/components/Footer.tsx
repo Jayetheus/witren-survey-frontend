@@ -10,7 +10,15 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand Section */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-bold text-white">WitRent</h3>
+            <h3 className="text-2xl font-bold text-white"><img 
+              src="/lovable-uploads/e9660e74-0675-4977-a3ba-4c1107120e3d.png" 
+              alt="WitRent Logo" 
+              className="h-24 w-auto object-contain"
+              style={{
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.05))',
+                transform: 'translateZ(0)' // Improves rendering quality
+              }}
+            />WitRent</h3>
             <p className="text-sm text-slate-400">
               Understanding Witbank's rental market through community-driven research.
             </p>

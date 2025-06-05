@@ -27,16 +27,20 @@ const Home = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Hero Section */}
       <div className="container mx-auto px-4 py-12 max-w-6xl">
-        {/* Logo Section */}
-        <div className="text-center mb-8" data-aos="fade-down">
-          <div className="inline-flex items-center justify-center p-4 bg-white rounded-2xl shadow-lg mb-6 border border-slate-200">
+        {/* Enhanced Logo Section */}
+        <div className="text-center mb-12" data-aos="fade-down">
+          <div className="inline-flex items-center justify-center p-4 bg-white rounded-2xl shadow-md mb-6 border border-slate-200/60 hover:shadow-lg transition-all duration-300">
             <img 
               src="/lovable-uploads/e9660e74-0675-4977-a3ba-4c1107120e3d.png" 
               alt="WitRent Logo" 
-              className="h-16 w-auto filter drop-shadow-sm"
+              className="h-24 w-auto object-contain"
+              style={{
+                filter: 'drop-shadow(0 4px 6px rgba(0,0,0,0.05))',
+                transform: 'translateZ(0)' // Improves rendering quality
+              }}
             />
           </div>
-          <div className="w-20 h-1 bg-gradient-to-r from-witblue to-witorange mx-auto rounded-full"></div>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-witblue to-witorange mx-auto rounded-full opacity-90 mt-2"></div>
         </div>
 
         <div className="text-center mb-16" data-aos="fade-up">
