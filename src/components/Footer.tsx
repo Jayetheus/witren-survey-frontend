@@ -47,14 +47,14 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-witorange" />
-                <a href="mailto:hello@witrent.co.za" className="hover:text-witblue transition-colors">
-                  hello@witrent.co.za
+                <a href="mailto:jayetheus@gmail.com" className="hover:text-witblue transition-colors">
+                  jayetheus@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-witorange" />
-                <a href="tel:+27123456789" className="hover:text-witblue transition-colors">
-                  +27 12 345 6789
+                <a href="tel:+27837961494" className="hover:text-witblue transition-colors">
+                  +27 837 961 494
                 </a>
               </div>
               <div className="flex items-start gap-2">
@@ -77,8 +77,8 @@ const Footer = () => {
               <div className="mt-4 p-3 bg-slate-800 rounded border border-slate-700">
                 <p className="text-xs text-slate-300">
                   For data deletion requests:<br />
-                  <a href="mailto:privacy@witrent.co.za" className="text-witblue hover:underline">
-                    privacy@witrent.co.za
+                  <a href="mailto:jayetheus@gmail.com" className="text-witblue hover:underline">
+                    jayetheus@gmail.com
                   </a>
                 </p>
               </div>
@@ -90,7 +90,10 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
           <div className="flex flex-col md:flex-row items-center gap-4">
-            <p>&copy; 2024 WitRent. All rights reserved.</p>
+            <p>&copy; 2025 WitRent. All rights reserved.</p>
+            <span className="text-xs bg-slate-800 px-2 py-1 rounded">
+                Jayethian Product
+              </span>
             <div className="flex items-center gap-4">
               <span className="text-xs bg-slate-800 px-2 py-1 rounded">
                 Research Initiative
@@ -101,7 +104,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-xs text-slate-500">
-            Last updated: December 2024
+            Last updated: May 2025
           </div>
         </div>
       </div>

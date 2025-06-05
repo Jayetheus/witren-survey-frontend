@@ -1,16 +1,15 @@
-
 import { useState } from 'react';
+import axios from 'axios';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { toast } from '@/hooks/use-toast';
-import { ChevronDown, Shield, Clock } from 'lucide-react';
+import { Shield, Clock } from 'lucide-react';
+import { replace, useNavigate } from 'react-router-dom';
 
 interface FormData {
   currentlyLooking: string;
@@ -29,6 +28,8 @@ interface FormData {
 }
 
 const SurveyForm = () => {
+  const navigate = useNavigate();
+
   const [currentSection, setCurrentSection] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     currentlyLooking: '',
@@ -107,12 +108,18 @@ const SurveyForm = () => {
     }
   };
 
-  const submitForm = () => {
-    console.log('Form submitted:', formData);
+  const submitForm = async () => {
+    const response = await axios.post(process.env.API_POINT, formData).catch(
+      (err) => {
+        toast({title: 'Failed To Save',description: 'Failed to save your response!'})
+      }
+    )
     toast({
       title: "Thank you!",
       description: "Your response has been submitted anonymously.",
     });
+
+    navigate('/thank-you', {replace: true})
   };
 
   return (
@@ -271,12 +278,12 @@ const SurveyForm = () => {
                   <Label htmlFor="1000-1500">R1,000 - R1,500</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="1500-2000" id="1500-2000" />
-                  <Label htmlFor="1500-2000">R1,500 - R2,000</Label>
+                  <RadioGroupItem value="1500-2000" id="1500-3000" />
+                  <Label htmlFor="1500-3000">R1,500 - R3,000</Label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="over-2000" id="over-2000" />
-                  <Label htmlFor="over-2000">Over R2,000</Label>
+                  <RadioGroupItem value="over-3000" id="over-3000" />
+                  <Label htmlFor="over-3000">Over R3,000</Label>
                 </div>
               </RadioGroup>
             </div>

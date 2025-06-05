@@ -7,7 +7,6 @@ import Footer from '../components/Footer';
 
 const Home = () => {
   useEffect(() => {
-    // Initialize AOS when available
     const initAOS = async () => {
       try {
         const AOS = await import('aos');
